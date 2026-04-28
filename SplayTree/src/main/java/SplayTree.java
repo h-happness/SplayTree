@@ -96,26 +96,26 @@ public class SplayTree {
             Node grandparent = parent.parent;
 
             if (grandparent == null) {
-                // Zig: узел — прямой потомок корня
+                // Zig
                 if (node == parent.left) {
                     rotateRight(parent);
                 } else {
                     rotateLeft(parent);
                 }
             } else if (node == parent.left && parent == grandparent.left) {
-                // Zig‑Zig: два левых поворота
+                // Zig‑Zig
                 rotateRight(grandparent);
                 rotateRight(parent);
             } else if (node == parent.right && parent == grandparent.right) {
-                // Zag‑Zag: два правых поворота
+                // Zig‑Zig
                 rotateLeft(grandparent);
                 rotateLeft(parent);
             } else if (node == parent.right && parent == grandparent.left) {
-                // Zig‑Zag: левый, затем правый поворот
+                // Zig‑Zag
                 rotateLeft(parent);
                 rotateRight(grandparent);
             } else {
-                // Zag‑Zig: правый, затем левый поворот
+                // Zig‑Zag
                 rotateRight(parent);
                 rotateLeft(grandparent);
             }
@@ -173,7 +173,7 @@ public class SplayTree {
         }
         return node;
     }
-
+    // Следующие 4 метода нудны просто для вывода элементов на экран
     // Обход в порядке in‑order (возрастающий порядок)
     public void inOrder() {
         inOrder(root);
